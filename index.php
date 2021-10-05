@@ -1,6 +1,4 @@
-<?php
-include_once("conexion.php")
-?>
+<?php include_once("conexion.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +13,7 @@ include_once("conexion.php")
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 </head>
 <body>
+
     <nav class="navbar-dark bg-dark">
         <div class="container">
             <a href="index.php" class="navbar-brand">CRUD PHP</a>
@@ -35,6 +34,7 @@ include_once("conexion.php")
             <?php session_unset(); } ?>
 
             <div class="card card-body">
+                <h5>Ingrese los datos</h5>
                 <form action="guardar.php" method="POST">
                     <div class="form-group">
                         <input type="text" name="title" class="form-control my-3" placeholder="Titulo de la tarea" autofocus>
@@ -64,30 +64,24 @@ include_once("conexion.php")
 
                       while($row = mysqli_fetch_array($resultado_tarea)){ ?>
                         <tr>
-                            <td><?php echo $row['title']?></td>
+                            <td><?php echo $row['titulo']?></td>
                             <td><?php echo $row['descripcion']?></td>
                             <td><?php echo $row['fecha de creacion']?></td>
                             <td>
-                                <a href="editar.php?id=<?php echo $row['id']?>" clasas="btn btn-secondary">
-                                    <i class="fas fa-marker"></i>
-                                </a>
-                                <a href="borrar.php?id=<?php echo $row['id']?>" clasas="btn btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                                <a href="editar.php?id=<?php echo $row['id']?>" clasas="btn btn-primary"><i class="fas fa-marker"></i></a>
+                                <a href="borrar.php?id=<?php echo $row['id']?>" clasas="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>  
+    </div>    
 
-    </div>
+<!--Scripts-->    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     
+    </body>
+    </html>
+   
 
-
-
-
-    <!--Scripts-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     
-</body>
-</html>
