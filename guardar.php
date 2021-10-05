@@ -8,7 +8,7 @@ if(isset($_POST['guardar_tarea'])){
     /*echo $title;
     echo $descripcion;*/
 
-    $query = "INSERT INTO tareas(title,descripcion) VALUES('$title','$descripcion')";
+    $query = "INSERT INTO tareas(titulo,descripcion) VALUES('$title','$descripcion')";
     $resultado = mysqli_query($conn,$query);
 
     /*if(!$resultado){
